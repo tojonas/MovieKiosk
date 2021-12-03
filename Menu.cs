@@ -7,7 +7,7 @@ namespace MovieKiosk
     {
         private string _title;
         private IConsole _console;
-        private IDictionary<uint, Command> _options = new Dictionary<uint, Command>();
+        private IDictionary<string, Command> _options = new Dictionary<string, Command>();
 
         public Menu(string title, IConsole console)
         {
@@ -24,11 +24,11 @@ namespace MovieKiosk
             _console = console;
             // Reading menus from configuration
             
-            _options.Add(1, new LookupPriceCommand("Youth or Senior"));
-            _options.Add(2, new GroupPriceCommand("Calculate group price"));
-            _options.Add(3, new RepeaterCommand("Repeate ten times"));
-            _options.Add(4, new ThirdWordCommand("The third word"));
-            _options.Add(5, new QuitCommand("Quit"));
+            _options.Add("1", new LookupPriceCommand("Youth or Senior"));
+            _options.Add("2", new GroupPriceCommand("Calculate group price"));
+            _options.Add("3", new RepeaterCommand("Repeate ten times"));
+            _options.Add("4", new ThirdWordCommand("The third word"));
+            _options.Add("5", new QuitCommand("Quit"));
         }
 
         public void Show()
@@ -50,20 +50,13 @@ namespace MovieKiosk
         {
             while (true)
             {
-                var selection = ReadUInt();
+                var selection = _console.ReadKey();
                 if (_options.ContainsKey(selection) == true)
                 {
                     // A Command returning false will exit the current menu
                     return _options[selection].Execute(_console);
                 }
             }
-        }
-
-        private uint ReadUInt()
-        {
-            uint input;
-            while (uint.TryParse(_console.ReadKey(), out input) == false) ;
-            return input;
         }
     }
 }
