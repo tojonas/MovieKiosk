@@ -22,7 +22,7 @@ namespace MovieKiosk
             do
             {
                 OnExecute(console);
-                console.WriteLine("\nPress (q) to go back to main menu.");
+                console.WriteLine("\nPress (q) to go back to previous menu.");
             }
             while (console.ReadKey() != "q");
         }

@@ -17,7 +17,7 @@
                 console.WriteLine($"Discount: {discountCode} price: {price} sek.");
                 total += price;
             }
-            console.WriteLine($"Price total: {total} sek.");
+            console.WriteLine($"Total price for {numberOfTickets} people: {total} sek.");
         }
 
     }
