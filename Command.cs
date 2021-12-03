@@ -14,7 +14,7 @@ namespace MovieKiosk
             }
             _title = title;
         }
-        public virtual void Execute(IConsole console)
+        public virtual bool Execute(IConsole console)
         {
             console.Clear();
             console.WriteLine(_title);
@@ -25,6 +25,7 @@ namespace MovieKiosk
                 console.WriteLine("\nPress (q) to go back to previous menu.");
             }
             while (console.ReadKey() != "q");
+            return true;
         }
         protected virtual void OnExecute(IConsole console )
         {

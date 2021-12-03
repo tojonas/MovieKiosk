@@ -7,7 +7,7 @@ namespace MovieKiosk
     {
         private string _title;
         private IConsole _console;
-        private IList<Command> _options = new List<Command>();
+        private IDictionary<uint, Command> _options = new Dictionary<uint, Command>();
 
         public Menu(string title, IConsole console)
         {
@@ -23,12 +23,12 @@ namespace MovieKiosk
             _title = title;
             _console = console;
             // Reading menus from configuration
-            _options.Add(new LookupPriceCommand("Youth or Senior"));
-            _options.Add(new GroupPriceCommand("Calculate group price"));
-            _options.Add(new RepeaterCommand("Repeate ten times"));
-            _options.Add(new ThirdWordCommand("The third word"));
-            _options.Add(new Command("Quit"));
-
+            
+            _options.Add(1, new LookupPriceCommand("Youth or Senior"));
+            _options.Add(2, new GroupPriceCommand("Calculate group price"));
+            _options.Add(3, new RepeaterCommand("Repeate ten times"));
+            _options.Add(4, new ThirdWordCommand("The third word"));
+            _options.Add(5, new QuitCommand("Quit"));
         }
 
         public void Show()
@@ -38,10 +38,9 @@ namespace MovieKiosk
                 _console.Clear();
                 _console.WriteLine($"{_title}: What do you want to do?");
                 _console.WriteLine("==================================");
-                int selector = 1;
                 foreach (var option in _options)
                 {
-                    _console.WriteLine($"{selector++}) {option.Title}");
+                    _console.WriteLine($"{option.Key}) {option.Value.Title}");
                 }
             }
             while (ExecuteSelection());
@@ -49,13 +48,15 @@ namespace MovieKiosk
 
         private bool ExecuteSelection()
         {
-            var selection = ReadUInt();
-            if (selection < _options.Count)
+            while (true)
             {
-                _options[(int)selection - 1].Execute(_console);
-                return true;
+                var selection = ReadUInt();
+                if (_options.ContainsKey(selection) == true)
+                {
+                    // A Command returning false will exit the current menu
+                    return _options[selection].Execute(_console);
+                }
             }
-            return false;
         }
 
         private uint ReadUInt()
