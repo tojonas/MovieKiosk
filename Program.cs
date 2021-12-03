@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MovieKiosk
+﻿namespace MovieKiosk
 {
     class Program
     {

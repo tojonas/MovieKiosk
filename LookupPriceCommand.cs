@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace MovieKiosk
+﻿namespace MovieKiosk
 {
     public class LookupPriceCommand : Command
     {
-        public LookupPriceCommand( string title ) :base( title )
+        public LookupPriceCommand(string title) : base(title)
         {
         }
         public override void OnExecute(IConsole console)

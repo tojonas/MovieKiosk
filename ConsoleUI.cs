@@ -21,7 +21,7 @@ namespace MovieKiosk
 
         public void Write(string text)
         {
-            Console.Write(text); 
+            Console.Write(text);
         }
 
         public void WriteLine(string text)

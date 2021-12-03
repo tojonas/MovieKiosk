@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MovieKiosk
+﻿namespace MovieKiosk
 {
     public class GroupPriceCommand : Command
     {
@@ -15,11 +9,11 @@ namespace MovieKiosk
         {
             var numberOfTickets = ReadUInt(console, "Number of people:");
             int total = 0;
-            for( int i=0; i< numberOfTickets; i++)
+            for (int i = 0; i < numberOfTickets; i++)
             {
-                var age = ReadUInt(console, "Age:" );
+                var age = ReadUInt(console, "Age:");
 
-                var (discountCode,price) = MoviePrices.GetDiscountCodeAndPrice(age);
+                var (discountCode, price) = MoviePrices.GetDiscountCodeAndPrice(age);
                 console.WriteLine($"Discount: {discountCode} price: {price} sek.");
                 total += price;
             }

@@ -16,13 +16,13 @@ namespace MovieKiosk
                 throw new ArgumentNullException(nameof(title));
             }
 
-            if ( console == null )
+            if (console == null)
             {
                 throw new ArgumentNullException(nameof(console));
             }
             _title = title;
             _console = console;
-            _options.Add(new LookupPriceCommand("Youth or Senior") );
+            _options.Add(new LookupPriceCommand("Youth or Senior"));
             _options.Add(new GroupPriceCommand("Calculate group price"));
             _options.Add(new RepeaterCommand("Repeate ten times"));
             _options.Add(new ThirdWordCommand("The third word"));

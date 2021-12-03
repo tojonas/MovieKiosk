@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MovieKiosk
 {
     public class ThirdWordCommand : Command
     {
-        public ThirdWordCommand( string title ) : base(title)
+        public ThirdWordCommand(string title) : base(title)
         {
 
         }
         public override void OnExecute(IConsole console)
         {
             console.Write($"Enter a sentence with at least three words:");
-            var words = GetAtLeastThreeWords( console );
+            var words = GetAtLeastThreeWords(console);
 
             console.WriteLine($"The third word is: {words[2]}");
         }

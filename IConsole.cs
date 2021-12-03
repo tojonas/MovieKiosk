@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MovieKiosk
+﻿namespace MovieKiosk
 {
     public interface IConsole
     {
