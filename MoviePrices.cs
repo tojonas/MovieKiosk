@@ -47,5 +47,28 @@ namespace MovieKiosk
                 return (Discounts.Regular, PriceDiscounts[Discounts.Regular]);
             }
         }
+
+        public static (Discounts discountCode, int price) GetDiscountCodeAndPriceEx(uint age)
+        {
+            // This is the way I would write it without else
+            if (age < (int)Discounts.Infant)
+            {
+                return (Discounts.Infant, PriceDiscounts[Discounts.Infant]);
+            }
+            if (age < (int)Discounts.Youth)
+            {
+                return (Discounts.Youth, PriceDiscounts[Discounts.Youth]);
+            }
+            if (age > (int)Discounts.SuperSenior) // Important to check higher ages first
+            {
+                return (Discounts.SuperSenior, PriceDiscounts[Discounts.SuperSenior]);
+            }
+            if (age > (int)Discounts.Senior)
+            {
+                return (Discounts.Senior, PriceDiscounts[Discounts.Senior]);
+            }
+            return (Discounts.Regular, PriceDiscounts[Discounts.Regular]);
+        }
+
     }
 }
