@@ -10,8 +10,7 @@
             var text = ReadText(console, "Enter text:");
             for (int i = 0; i < 10; i++)
             {
-                if (i > 0) console.Write(", ");
-                console.Write(text);
+                console.Write($"{(i>0?", ":"")}{1+i}.{text}");
             }
         }
     }
