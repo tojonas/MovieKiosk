@@ -10,7 +10,7 @@ namespace MovieKiosk
         }
         public override void OnExecute(IConsole console)
         {
-            console.Write($"Enter a sentence with at least three words:");
+            console.Write("Enter a sentence with at least three words:");
             var words = GetAtLeastThreeWords(console);
 
             console.WriteLine($"The third word is: {words[2]}");
@@ -20,7 +20,7 @@ namespace MovieKiosk
             string[] words;
             while ((words = console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries)).Length < 3)
             {
-                console.Write($"Not enough words, please try again:");
+                console.Write("Not enough words, please try again:");
             }
             return words;
         }
