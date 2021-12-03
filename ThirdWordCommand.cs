@@ -11,14 +11,14 @@ namespace MovieKiosk
         public override void OnExecute(IConsole console)
         {
             console.Write("Enter a sentence with at least three words:");
-            var words = GetAtLeastThreeWords(console);
+            var words = GetAtLeastWords(console,3);
 
             console.WriteLine($"The third word is: {words[2]}");
         }
-        private string[] GetAtLeastThreeWords(IConsole console)
+        private string[] GetAtLeastWords(IConsole console, uint numberOfWords)
         {
             string[] words;
-            while ((words = console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries)).Length < 3)
+            while ((words = console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries)).Length < numberOfWords)
             {
                 console.Write("Not enough words, please try again:");
             }
