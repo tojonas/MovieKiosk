@@ -5,7 +5,7 @@
         public GroupPriceCommand(string title) : base(title)
         {
         }
-        public override void OnExecute(IConsole console)
+        protected override void OnExecute(IConsole console)
         {
             var numberOfTickets = ReadUInt(console, "Number of people:");
             int total = 0;

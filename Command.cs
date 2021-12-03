@@ -26,7 +26,7 @@ namespace MovieKiosk
             }
             while (console.ReadKey() != "q");
         }
-        public virtual void OnExecute(IConsole console )
+        protected virtual void OnExecute(IConsole console )
         {
             // We shouldn't end up here
             console.WriteLine("base.OnExecute");

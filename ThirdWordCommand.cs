@@ -8,7 +8,7 @@ namespace MovieKiosk
         {
 
         }
-        public override void OnExecute(IConsole console)
+        protected override void OnExecute(IConsole console)
         {
             console.Write("Enter a sentence with at least three words:");
             var words = GetAtLeastWords(console,3);
