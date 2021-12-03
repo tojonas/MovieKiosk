@@ -25,6 +25,7 @@ namespace MovieKiosk
         public static (Discounts discountCode, int price) GetDiscountCodeAndPrice(uint age)
         {
             // I hate if else if so I'm returning as soon as the condition is met making the if else not matter...
+            // https://blog.codinghorror.com/flattening-arrow-code/
             if (age < (int)Discounts.Infant)
             {
                 return (Discounts.Infant, PriceDiscounts[Discounts.Infant]);
