@@ -22,6 +22,7 @@ namespace MovieKiosk
             }
             _title = title;
             _console = console;
+            // Reading menus from configuration
             _options.Add(new LookupPriceCommand("Youth or Senior"));
             _options.Add(new GroupPriceCommand("Calculate group price"));
             _options.Add(new RepeaterCommand("Repeate ten times"));
